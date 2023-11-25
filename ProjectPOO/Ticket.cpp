@@ -24,6 +24,7 @@ public:
 		//delete[] seatNumber;
 		delete[] uniqueID;
    }
+private:
 
 	void generateUniqueID() { //generating it based on the seat number and event id
 		std::string seatStr = std::to_string(seatNumber);
@@ -33,6 +34,25 @@ public:
 		strcpy(uniqueID, (seatStr + eventIDStr).c_str());
 		
 	}
+
+	//getters
+
+	const char* getTicketType() const {
+		return ticketType;
+	}
+
+	const char* getEventId() const {
+		return eventID;
+	}
+
+	const char* getUniqueID() const {
+		return uniqueID;
+	}
+
+	int getSeatNumber() const {
+		return seatNumber;
+	}
+
 
 
 };
