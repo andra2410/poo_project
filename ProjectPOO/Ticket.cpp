@@ -33,7 +33,7 @@ private:
 		std::string seatStr = std::to_string(seatNumber);
 		std::string eventIDStr(eventID);
 
-		uniqueID = new char[seatStr.length() + eventID.length() + 10];
+		uniqueID = new char[seatStr.length() + eventIDStr.length() + 10];
 		strcpy(uniqueID, (seatStr + eventIDStr).c_str());
 		
 	}
@@ -62,7 +62,7 @@ public:
 	void setTicketType(const char* tType) {
 		delete[] ticketType;
 		ticketType = new char[strlen(tType) + 1];
-		strcpy(ticketType, type);
+		strcpy(ticketType, tType);
 	}
 
 	void setSeatNumber(int seat) {
