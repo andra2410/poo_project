@@ -18,7 +18,9 @@ int main() {
 	Ticket ticket("VIP", 1, "event123");
 
 	cout << "Ticket type:" << ticket.getTicketType() << endl;
-	//cout << "Seat Number": << ticket.getSeatNumber() << endl;
+	cout << "Event id:" << ticket.getEventId() << endl;
+	cout << "Seat number:" << ticket.getSeatNumber() << endl;
+	cout << "Unique id:" << ticket.getUniqueID() << endl;
 
 
 

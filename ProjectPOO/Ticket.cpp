@@ -9,7 +9,7 @@ class Ticket {
 private:
 	char* ticketType; //vip, 
 	int seatNumber;
-	char* eventID;
+	char* eventID; //...........
 	char* uniqueID;
 
 public:
