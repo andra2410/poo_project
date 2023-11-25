@@ -1,5 +1,8 @@
 #include<iostream>
 #include "Event.cpp"
+#include "Ticket.cpp"
+#include "EventLocation.cpp"
+
 
 using namespace std;
 
@@ -12,7 +15,10 @@ int main() {
 	cout << "maxTickets for the " << event1.getEventDetails() << " are " << event1.getMaxTickets();
 
 
+	Ticket ticket("VIP", 1, "event123");
 
+	cout << "Ticket type:" << ticket.getTicketType() << endl;
+	//cout << "Seat Number": << ticket.getSeatNumber() << endl;
 
 
 

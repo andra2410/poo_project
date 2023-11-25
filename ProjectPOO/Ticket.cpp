@@ -7,7 +7,7 @@ using namespace std;
 
 class Ticket {
 private:
-	char* ticketType;
+	char* ticketType; //vip, 
 	int seatNumber;
 	char* eventID;
 	char* uniqueID;
