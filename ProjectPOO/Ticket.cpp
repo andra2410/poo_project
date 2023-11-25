@@ -15,8 +15,11 @@ private:
 public:
 	Ticket() : ticketType(nullptr), seatNumber(0), uniqueID(nullptr), eventID(nullptr) {}
 
-	Ticket(const char* ticketType, int uniqueID, const char* eventID){
-	
+	Ticket(const char* ticketType, int seatNumber, const char* eventID){
+		this->setSeatNumber(seatNumber);
+		this->setEventID(eventID); 
+		this->setTicketType(ticketType);
+		generateUniqueID();
 	}
 
 	~Ticket() {
@@ -35,7 +38,8 @@ private:
 		
 	}
 
-	//getters
+public:
+	//getters ; tickettype, seatno, event id, uniqueid
 
 	const char* getTicketType() const {
 		return ticketType;
@@ -51,6 +55,24 @@ private:
 
 	int getSeatNumber() const {
 		return seatNumber;
+	}
+
+	//setters : tickettype, seatno, event id, unique id
+
+	void setTicketType(const char* tType) {
+		delete[] ticketType;
+		ticketType = new char[strlen(tType) + 1];
+		strcpy(ticketType, type);
+	}
+
+	void setSeatNumber(int seat) {
+		seatNumber = seat;
+	}
+
+	void setEventID(const char* event) {
+		delete[] eventID;
+		eventID = new char[strlen(event) + 1];
+		strcpy(eventID, event);
 	}
 
 
