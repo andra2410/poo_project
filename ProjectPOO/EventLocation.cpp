@@ -63,6 +63,6 @@ public:
 
     void printSeatInformation() const {
         cout << "Seat info";
-        for (int i = 0; i < maxSeats; i++) cout << seatInformation[i];
+        for (int i = 0; i < maxSeats; i++) cout << seatInformation[i] << " ";
     }
 };
