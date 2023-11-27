@@ -9,7 +9,7 @@ class Ticket {
 private:
 	char* ticketType; //vip, 
 	int seatNumber;
-	char* eventID; //...........
+	char* eventID;
 	char* uniqueID;
 
 public:
@@ -29,15 +29,22 @@ public:
    }
 private:
 
-	void generateUniqueID() { //generating it based on the seat number and event id
+	void generateUniqueID() {
 		std::string seatStr = std::to_string(seatNumber);
 		std::string eventIDStr(eventID);
 
-		uniqueID = new char[seatStr.length() + eventIDStr.length() + 10];
-		strcpy(uniqueID, (seatStr + eventIDStr).c_str());
-		
-	}
+		// Calculate the total length, including null terminators
+		size_t totalLength = seatStr.length() + eventIDStr.length() + 1;
 
+		// Allocate the buffer
+		uniqueID = new char[totalLength];
+
+		// Use strcpy_s to prevent buffer overflow
+		strcpy_s(uniqueID, totalLength, seatStr.c_str());
+
+		// Use strcat_s to concatenate eventIDStr
+		strcat_s(uniqueID, totalLength, eventIDStr.c_str());
+	}
 public:
 	//getters ; tickettype, seatno, event id, uniqueid
 
@@ -62,7 +69,7 @@ public:
 	void setTicketType(const char* tType) {
 		delete[] ticketType;
 		ticketType = new char[strlen(tType) + 1];
-		strcpy(ticketType, tType);
+		strcpy_s(this->ticketType, strlen(tType), tType);
 	}
 
 	void setSeatNumber(int seat) {
@@ -71,8 +78,8 @@ public:
 
 	void setEventID(const char* event) {
 		delete[] eventID;
-		eventID = new char[strlen(event) + 1];
-		strcpy(eventID, event);
+		this->eventID = new char[strlen(event) + 1];
+		strcpy_s(this->eventID, strlen(event), event);
 	}
 
 
