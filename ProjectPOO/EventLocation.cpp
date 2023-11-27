@@ -17,10 +17,16 @@ public:
 
     EventLocation() : locationDetails(nullptr), seatInformation(0), maxSeats(0) {}
 
-    EventLocation(string* locationDetails, int* seatInformation, int maxSeats) {
-        this->setLocationDetails(locationDetails);
-        this->setSeatInformation(seatInformation);
-        this->setMaxSeats(maxSeats);
+    EventLocation(const string& location, int* seatInfo, int max) {
+        this->setLocationDetails(new string(location));
+        this->setSeatInformation(seatInfo);
+        this->setMaxSeats(max);
+    }
+
+    ~EventLocation() {
+        delete locationDetails;
+        delete[] seatInformation;
+      
     }
 
     // getters
@@ -45,10 +51,18 @@ public:
     }
 
     void setMaxSeats(int seats) {
+        if (seats < 0) {
+            throw invalid_argument("Number of seats cannot be negative");
+        }
         this->maxSeats = seats;
     }
 
     void setSeatInformation(int* seatinfo) {
         this->seatInformation = seatinfo;
+    }
+
+    void printSeatInformation() const {
+        cout << "Seat info";
+        for (int i = 0; i < maxSeats; i++) cout << seatInformation[i];
     }
 };

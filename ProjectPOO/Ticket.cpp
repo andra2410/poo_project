@@ -73,6 +73,9 @@ public:
 	}
 
 	void setSeatNumber(int seat) {
+		if (seat < 0) {
+			throw invalid_argument("Seat number cannot be negative");
+	   }
 		seatNumber = seat;
 	}
 
