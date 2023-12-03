@@ -46,6 +46,9 @@ private:
 		strcat_s(uniqueID, totalLength, eventIDStr.c_str());
 	}
 public:
+	//static vb
+	const static int MAX_TICKET_TYPES = 5;
+
 	//getters ; tickettype, seatno, event id, uniqueid
 
 	const char* getTicketType() const {

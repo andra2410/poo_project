@@ -20,7 +20,7 @@ int main() {
 	EventLocation eventlocation("Location A", new int[3] {1, 2, 3}, 3);
 
 	cout << "Event location:" << *eventlocation.getLocationDetails() << endl;
-	cout << "Seat info:";
+	//cout << "Seat info: ";
 	eventlocation.printSeatInformation();
 
 

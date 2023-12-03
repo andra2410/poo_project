@@ -13,6 +13,9 @@ private:
     int maxSeats;
 
 public:
+
+    const static string COMPANY_NAME;
+
     // constructor, deconstructor, getters, setters
 
     EventLocation() : locationDetails(nullptr), seatInformation(0), maxSeats(0) {}
@@ -62,7 +65,7 @@ public:
     }
 
     void printSeatInformation() const {
-        cout << "Seat info";
+        cout << "Seat info: ";
         for (int i = 0; i < maxSeats; i++) cout << seatInformation[i] << " ";
     }
 };
