@@ -13,6 +13,7 @@ private:
 	char* uniqueID;
 
 public:
+	const static int MAX_TICKET_TYPES = 5;
 	Ticket() : ticketType(nullptr), seatNumber(0), uniqueID(nullptr), eventID(nullptr) {}
 
 	Ticket(const char* ticketType, int seatNumber, const char* eventID){
