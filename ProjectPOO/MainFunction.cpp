@@ -1,3 +1,4 @@
+//MAIN FUNCTION
 #include<iostream>
 #include "Event.cpp"
 #include "Ticket.cpp"
@@ -23,7 +24,7 @@ int main() {
 
 	cout << "Event location:" << *eventlocation.getLocationDetails() << endl;
 	//cout << "Seat info: ";
-	eventlocation.printSeatInformation();
+	//eventlocation.printSeatInformation();
 
 	
 

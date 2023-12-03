@@ -1,3 +1,4 @@
+//TICKET CLASS
 #include <iostream>
 #include <string>
 #include<string.h>

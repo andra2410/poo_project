@@ -1,3 +1,4 @@
+//EVENT LOCATION CLASS
 #include <iostream>
 #include "EventLocation.h"
 #include <string>
