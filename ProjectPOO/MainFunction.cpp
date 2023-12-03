@@ -24,6 +24,7 @@ int main() {
 
 	cout << "Event location:" << *eventlocation.getLocationDetails() << endl;
 	//cout << "Seat info: ";
+	
 	eventlocation.printSeatInformation();
 
 	
