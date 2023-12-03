@@ -105,6 +105,7 @@ private:
     }
 
 public:
+    //generic methods
     void processLocation() {
        
         cout << "Processing Location: " << *this->locationDetails <<endl;

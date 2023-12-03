@@ -154,6 +154,6 @@ public:
 		cout << "Ticket Type: " << ticketType << "\n";
 		cout << "Seat Number: " << seatNumber << "\n";
 		cout << "Event ID: " << eventID << "\n";
-		cout << "Unique ID: " << uniqueID << "\n";
+		cout << "Unique ID: " << uniqueID;
 	}
 };
