@@ -31,6 +31,14 @@ public:
         delete[] seatInformation;
       
     }
+    //copy const
+    EventLocation(const EventLocation& other) {
+        this->setLocationDetails(new string(*other.locationDetails));
+        this->setSeatInformation(new int[other.maxSeats]);
+        std::copy(other.seatInformation, other.seatInformation + other.maxSeats, this->seatInformation);
+        this->setMaxSeats(other.maxSeats);
+    }
+
 
     // getters
 

@@ -24,6 +24,38 @@ public:
 
     }
 
+    // Copy Constructor
+    Event(const Event& other) {
+        this->setEventDetails(other.eventDetails);
+        this->setEventDate(other.eventDate);
+        this->setEventTime(other.eventTime);
+        this->setMaxTickets(other.maxTickets);
+    }
+
+
+    //destructor
+    ~Event() {
+        delete[] eventDetails;
+        delete[] eventDate;
+        delete[] eventTime;
+    }
+
+    //= operator
+    Event& operator=(const Event& other) {
+        if (this != &other) {
+            this->setEventDetails(other.eventDetails);
+            this->setEventDate(other.eventDate);
+            this->setEventTime(other.eventTime);
+            this->setMaxTickets(other.maxTickets);
+        }
+        return *this;
+    }
+    // Overload << Operator 
+    friend ostream& operator<<(ostream& os, const Event& event) {
+        os << "Event Details: " << event.eventDetails << "\nDate: " << event.eventDate
+            << "\nTime: " << event.eventTime << "\nMax Tickets: " << event.maxTickets;
+        return os;
+    }
     //getters 
 
     const char* getEventDetails() const{
