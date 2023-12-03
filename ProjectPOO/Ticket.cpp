@@ -31,6 +31,16 @@ public:
 		delete[] uniqueID;
 		delete[] ticketPrices;
    }
+
+	//copy constructor 
+	// Copy constructor
+
+	Ticket(const Ticket& other) {
+		this->setTicketType(other.ticketType);
+		this->setSeatNumber(other.seatNumber);
+		this->setEventID(other.eventID);
+		this->generateUniqueID();
+	}
 private:
 
 	void generateUniqueID() {
@@ -104,6 +114,30 @@ public:
 		}
 	}
 
+	Ticket& operator++() {
+		// Increment the seat number
+		++seatNumber;
+		return *this;
+	}
 
+	Ticket& operator--() {
+		// Increment the seat number
+		--seatNumber;
+		return *this;
+	}
 
+	friend ostream& operator<<(ostream& os, const Ticket& ticket) {
+		os << "Ticket Type: " << ticket.ticketType << "\nSeat Number: " << ticket.seatNumber<< "\nEvent ID: " << ticket.eventID << "\nUnique ID: " << ticket.uniqueID;
+		return os;
+	}
+
+	Ticket& operator=(const Ticket& other) {
+		if (this != &other) { // Avoid self-assignment
+			this->setTicketType(other.ticketType);
+			this->setSeatNumber(other.seatNumber);
+			this->setEventID(other.eventID);
+			this->generateUniqueID();
+		}
+		return *this;
+	}
 };

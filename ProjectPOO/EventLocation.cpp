@@ -55,6 +55,17 @@ public:
         return os;
     }
 
+    bool operator!() const {
+        // Check if the location has no details
+        return locationDetails == nullptr || locationDetails->empty();
+    }
+
+    bool operator==(const EventLocation& other) const {
+        // Compare location details and max seats
+        return *locationDetails == *other.locationDetails && maxSeats == other.maxSeats;
+    }
+
+
     // getters
 
     const string* getLocationDetails() const {
@@ -103,5 +114,6 @@ public:
         cout << "Location: " << *this->locationDetails << endl;
         printSeatInformation();
     }
+
 
 };

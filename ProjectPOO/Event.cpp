@@ -56,6 +56,24 @@ public:
             << "\nTime: " << event.eventTime << "\nMax Tickets: " << event.maxTickets;
         return os;
     }
+
+    Event operator+(const Event& other) const {
+        // Combine event details, date, and time
+        char* combinedDetails = new char[strlen(eventDetails) + strlen(other.eventDetails) + 1];
+        strcpy_s(combinedDetails, strlen(eventDetails) + 1, eventDetails);
+        strcat_s(combinedDetails, strlen(eventDetails) + strlen(other.eventDetails) + 1, other.eventDetails);
+
+        // Return a new Event with combined details
+        return Event(combinedDetails, eventDate, eventTime, maxTickets + other.maxTickets);
+    }
+
+    char operator[](int index) const {
+        if (index < 0 || index >= strlen(eventDetails)) {
+            throw out_of_range("Index out of bounds");
+        }
+        return eventDetails[index];
+    }
+
     //getters 
 
     const char* getEventDetails() const{
@@ -97,8 +115,6 @@ public:
     void setMaxTickets(int tickets) {
         this->maxTickets = tickets;
     }
-
-
 
     void displayEventInfo() const {
         cout << "Event Details: " << this->eventDetails << "\nDate: " << this->eventDate << "\nTime: " << this->eventTime << "\nMax Tickets: " << this->maxTickets << endl;
