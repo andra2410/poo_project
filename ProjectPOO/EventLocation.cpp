@@ -39,6 +39,21 @@ public:
         this->setMaxSeats(other.maxSeats);
     }
 
+    EventLocation& operator=(const EventLocation& other) {
+        if (this != &other) {
+            this->setLocationDetails(new string(*other.locationDetails));
+            this->setSeatInformation(new int[other.maxSeats]);
+            std::copy(other.seatInformation, other.seatInformation + other.maxSeats, this->seatInformation);
+            this->setMaxSeats(other.maxSeats);
+        }
+        return *this;
+    }
+
+    friend ostream& operator<<(ostream& os, const EventLocation& eventLocation) {
+        os << "Location: " << *eventLocation.locationDetails;
+        eventLocation.printSeatInformation();
+        return os;
+    }
 
     // getters
 
@@ -55,6 +70,7 @@ public:
     }
 
     // setters
+private:
 
     void setLocationDetails(const string* location) {
         delete[] this->locationDetails;
