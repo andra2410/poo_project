@@ -92,4 +92,16 @@ private:
         cout << "Seat info: ";
         for (int i = 0; i < maxSeats; i++) cout << seatInformation[i] << " ";
     }
+
+public:
+    void processLocation() {
+       
+        cout << "Processing Location: " << *this->locationDetails <<endl;
+    }
+
+    void displayLocationInfo() const {
+        cout << "Location: " << *this->locationDetails << endl;
+        printSeatInformation();
+    }
+
 };
