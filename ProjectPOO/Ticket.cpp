@@ -11,15 +11,17 @@ private:
 	int seatNumber;
 	char* eventID;
 	char* uniqueID;
+	double* ticketPrices; // Dynamic numeric vector for prices
 
 public:
-	const static int MAX_TICKET_TYPES = 5;
-	Ticket() : ticketType(nullptr), seatNumber(0), uniqueID(nullptr), eventID(nullptr) {}
+	
+	Ticket() : ticketPrices(0), ticketType(nullptr), seatNumber(0), uniqueID(nullptr), eventID(nullptr) {}
 
-	Ticket(const char* ticketType, int seatNumber, const char* eventID){
+	Ticket(const char* ticketType, int seatNumber, const char* eventID, double* prices){
 		this->setSeatNumber(seatNumber);
 		this->setEventID(eventID); 
 		this->setTicketType(ticketType);
+		this->setTicketPrices(prices);
 		generateUniqueID();
 	}
 
@@ -27,6 +29,7 @@ public:
 		delete[] ticketType;
 		//delete[] seatNumber;
 		delete[] uniqueID;
+		delete[] ticketPrices;
    }
 private:
 
@@ -37,7 +40,6 @@ private:
 		// Calculate the total length, including null terminators
 		size_t totalLength = seatStr.length() + eventIDStr.length() + 1;
 
-		// Allocate the buffer
 		uniqueID = new char[totalLength];
 
 		// Use strcpy_s to prevent buffer overflow
@@ -49,6 +51,7 @@ private:
 public:
 	//static vb
 	const static int MAX_TICKET_TYPES = 5;
+	static double TAX_RATE; 
 
 	//getters ; tickettype, seatno, event id, uniqueid
 
@@ -66,6 +69,10 @@ public:
 
 	int getSeatNumber() const {
 		return seatNumber;
+	}
+
+	const double* getTicketPrices() const {
+		return ticketPrices;
 	}
 
 	//setters : tickettype, seatno, event id, unique id
@@ -87,6 +94,14 @@ public:
 		delete[] eventID;
 		this->eventID = new char[strlen(event) + 1];
 		strcpy_s(this->eventID, strlen(event), event);
+	}
+
+	void setTicketPrices(double* prices) {
+		delete[] ticketPrices;
+		ticketPrices = new double[MAX_TICKET_TYPES];
+		for (int i = 0; i < MAX_TICKET_TYPES; ++i) {
+			ticketPrices[i] = prices[i];
+		}
 	}
 
 

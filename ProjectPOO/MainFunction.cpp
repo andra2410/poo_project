@@ -6,6 +6,8 @@
 
 using namespace std;
 
+double Ticket::TAX_RATE = 0.1;
+
 int main() {
 	
 	Event event1("event 1", "2023-11-22", "18:00", 100);
@@ -23,5 +25,6 @@ int main() {
 	//cout << "Seat info: ";
 	eventlocation.printSeatInformation();
 
+	
 
 }
