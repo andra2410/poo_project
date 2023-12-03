@@ -140,4 +140,20 @@ public:
 		}
 		return *this;
 	}
+
+	//generic methods
+	double calculateTotalPrice(double pricePerSeat) const {
+		if (seatNumber <= 0 || pricePerSeat <= 0) {
+			throw invalid_argument("Invalid seat number or price per seat");
+		}
+		return seatNumber * pricePerSeat;
+	}
+
+	void displayTicketInfo() const {
+		cout << "Ticket Information:\n";
+		cout << "Ticket Type: " << ticketType << "\n";
+		cout << "Seat Number: " << seatNumber << "\n";
+		cout << "Event ID: " << eventID << "\n";
+		cout << "Unique ID: " << uniqueID << "\n";
+	}
 };
