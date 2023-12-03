@@ -82,7 +82,7 @@ public:
     }
 
     // setters
-private:
+
 
     void setLocationDetails(const string* location) {
         delete[] this->locationDetails;
