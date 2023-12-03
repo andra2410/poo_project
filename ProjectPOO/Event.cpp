@@ -98,4 +98,11 @@ public:
         this->maxTickets = tickets;
     }
 
+
+
+    void displayEventInfo() const {
+        cout << "Event Details: " << this->eventDetails << "\nDate: " << this->eventDate << "\nTime: " << this->eventTime << "\nMax Tickets: " << this->maxTickets << endl;
+    }
+
+
 };
