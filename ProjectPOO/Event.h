@@ -12,6 +12,7 @@ private:
 public:
     Event();
     Event(const char* eventDetails, const char* eventDate, const char* eventTime, int maxTickets);
+
     Event(const Event& other);
     ~Event();
 
